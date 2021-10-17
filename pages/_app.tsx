@@ -68,6 +68,10 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 0 1rem;
   }
 
+  button {
+    font-size: 1.2rem;
+  }
+
   * {
     box-sizing: border-box;
   }
