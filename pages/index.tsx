@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import Layout from 'components/Layout';
 import InlineSelect, { Option } from 'components/InlineSelect';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import Feed from 'components/Feed';
 
 export default function Home() {
   const fellowships = ['Founders', 'Writers', 'Angels'];
@@ -20,8 +21,8 @@ export default function Home() {
         ))}
       </InlineSelect>
 
-      <h1>Hello Hello there!</h1>
-      <p>Your future newsfeed goes to this page. Or not, you decide 🤷</p>
+      <Feed/>
+
       <span>Check out these pages:</span>
       <ul>
         <li>
