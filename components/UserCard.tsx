@@ -1,8 +1,8 @@
 import Link from 'next/link'
 import styled from 'styled-components'
 import { User, Project } from 'types/users'
-import Card from './Card'
-import Markdown from './Markdown'
+import Card from './shared/Card'
+import Markdown from './shared/Markdown'
 import { Icon } from './shared/Icon'
 
 type Props = {

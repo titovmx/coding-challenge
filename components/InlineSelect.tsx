@@ -9,7 +9,7 @@ type Props = React.PropsWithChildren<{
 export default function InlineSelect({ children, label, onSelectedChange }: Props) {
   return (
     <>
-      {label && <h3 style={{ fontWeight: 'bold' }}>{label}</h3>}
+      {label && <h3 aria-label={label} style={{ fontWeight: 'bold' }}>{label}</h3>}
       <Container>
         {Children.map(
           children,
@@ -43,8 +43,9 @@ const Container = styled.div`
   flex-direction: row;
 `
 
-const OptionComponent = styled.button.attrs(({isSelected = false}: OptionProps) => ({
+const OptionComponent = styled.button.attrs(({value, isSelected = false}: OptionProps) => ({
   isSelected,
+  'aria-label': value
 }))`
   border-width: 1px;
   border-left-width: 0;
@@ -61,5 +62,9 @@ const OptionComponent = styled.button.attrs(({isSelected = false}: OptionProps) 
 
   &:last-child {
     border-radius: 0 8px 8px 0;
+  }
+
+  &:focus {
+    z-index: 1;
   }
 `

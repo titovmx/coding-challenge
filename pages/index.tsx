@@ -2,7 +2,7 @@ import { useQuery, gql } from '@apollo/client'
 import Layout from 'components/Layout'
 import InlineSelect, { Option } from 'components/InlineSelect'
 import React, { useCallback, useEffect, useRef, useState } from 'react'
-import Feed from 'components/Feed'
+import Feed from '@/components/feed/Feed'
 import { FELLOWSHIP_VALUES } from 'types/shared'
 import { FeedItem } from 'types/feed'
 

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import { CalendarIcon } from '@primer/octicons-react'
 import { FeedItem } from 'types/feed'
-import { Icon } from './shared/Icon'
+import { Icon } from '../shared/Icon'
 
 type Props = {
   feedItem: FeedItem;
@@ -22,7 +22,7 @@ export default function FeedItemCard({ feedItem }: Props) {
           {
             (type === 'user' || type === 'project') &&
             <div>
-              <Link href={`/${type}s/${entityId}`}>Go to page</Link>
+              <Link href={`/${type}s/${entityId}`} passHref={true}>Go to page</Link>
             </div>
           }
         </div>
