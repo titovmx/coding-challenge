@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 import { useQuery, gql } from '@apollo/client'
 import Layout from 'components/Layout'
 import UserCard from 'components/UserCard'
-import { User } from 'types/users'
+import { User } from 'types/shared'
 
 const USER_QUERY = gql`
   query user($id: Int!) {

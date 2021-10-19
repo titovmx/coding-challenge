@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import styled from 'styled-components'
-import { Project, User } from 'types/projects'
+import { Project, ProjectParticipant } from 'types/shared'
 import Card from './shared/Card'
 import Markdown from './shared/Markdown'
 import { Icon } from './shared/Icon'
@@ -56,7 +56,7 @@ const ColumnRight = styled.div`
   flex-basis: 14rem;
 `
 
-function Participant({user}: {user: User}) {
+function Participant({user}: {user: ProjectParticipant}) {
   return (
     <ParticipantContainer>
       <ParticipantColumnLeft>
