@@ -7,7 +7,7 @@ import { FELLOWSHIP_VALUES } from 'types/shared'
 import { FeedItem } from 'types/feed'
 import styled from 'styled-components'
 
-const MIN_FEED_ITEM_HEIGHT = 48
+const MIN_FEED_ITEM_HEIGHT = 65
 
 const FEED_QUERY = gql`
   query feed(
