@@ -1,25 +1,12 @@
 import Link from 'next/link'
 import styled from 'styled-components'
+import { User, Project } from 'types/users'
 import Card from './Card'
 import Markdown from './Markdown'
+import { Icon } from './shared/Icon'
 
 type Props = {
   user: User;
-}
-
-type User = {
-  id: number;
-  name: string;
-  bio: string;
-  fellowship: "fellows" | "angels" | "writers";
-  avatar_url: string;
-  projects: Project[];
-}
-
-type Project = {
-  id: number;
-  name: string;
-  icon_url: string;
 }
 
 export default function UserCard({user}: Props) {
@@ -27,7 +14,7 @@ export default function UserCard({user}: Props) {
     <Card>
       <Columns>
         <ColumnLeft>
-          <Avatar src={user.avatar_url}/>
+          <Icon src={user.avatar_url}/>
         </ColumnLeft>
         <ColumnRight>
           <h2>{user.name}</h2>
@@ -37,7 +24,7 @@ export default function UserCard({user}: Props) {
             <>
               <h3>Projects:</h3>
               {user.projects.map(p => (
-                <Project key={p.id} project={p} />
+                <ProjectView key={p.id} project={p} />
               ))}
             </>
           )}
@@ -46,11 +33,6 @@ export default function UserCard({user}: Props) {
     </Card>
   )
 }
-
-const Avatar = styled.img`
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-`
 
 const Columns = styled.div`
   display: flex;
@@ -75,7 +57,7 @@ const ColumnRight = styled.div`
   flex-basis: 14rem;
 `
 
-function Project({project}: {project: Project}) {
+function ProjectView({project}: {project: Project}) {
   return (
     <ProjectContainer>
       <ProjectColumnLeft>

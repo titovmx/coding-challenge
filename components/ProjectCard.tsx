@@ -1,24 +1,12 @@
 import Link from 'next/link'
 import styled from 'styled-components'
+import { Project, User } from 'types/projects'
 import Card from './Card'
 import Markdown from './Markdown'
+import { Icon } from './shared/Icon'
 
 type Props = {
   project: Project;
-}
-
-type Project = {
-  id: number;
-  name: string;
-  description: string;
-  icon_url: string;
-  users: User[];
-}
-
-type User = {
-  id: number;
-  name: string;
-  avatar_url: string;
 }
 
 export default function ProjectCard({project}: Props) {
@@ -44,12 +32,6 @@ export default function ProjectCard({project}: Props) {
     </Card>
   )
 }
-
-
-const Icon = styled.img`
-  background-color: rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-`
 
 const Columns = styled.div`
   display: flex;

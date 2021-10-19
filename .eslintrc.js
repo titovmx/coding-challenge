@@ -1,3 +1,4 @@
+/* eslint-env node */
 module.exports = {
   env: {
     browser: true,
@@ -15,5 +16,7 @@ module.exports = {
   plugins: ['react', '@typescript-eslint', 'unused-imports'],
   rules: {
     'unused-imports/no-unused-imports-ts': 'warn',
+    'semi': ['error', 'never'],
+    'react/react-in-jsx-scope': 'off'
   },
-};
+}

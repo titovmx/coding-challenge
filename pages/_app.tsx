@@ -1,6 +1,7 @@
-import {ApolloClient, InMemoryCache, ApolloProvider} from '@apollo/client'
+import {ApolloClient, ApolloProvider} from '@apollo/client'
 import {createGlobalStyle, ThemeProvider} from 'styled-components'
 import type { AppProps } from 'next/app'
+import { cache } from './cache'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -17,13 +18,13 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 
 const client = new ApolloClient({
   uri: '/api/graphql',
-  cache: new InMemoryCache(),
+  cache,
 })
 
 const theme = {
   colors: {
   }
-};
+}
 
 const GlobalStyle = createGlobalStyle`
   html,
@@ -75,4 +76,4 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }
-`;
+`

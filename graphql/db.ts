@@ -1,16 +1,17 @@
 import path from 'path'
-import {Database} from 'sqlite3'
+import { Database } from 'sqlite3'
+import { FeedItemType, Fellowship } from 'types/shared'
 
 class AsyncDatabase {
-  db: Database;
+  db: Database
 
   constructor(filename: string) {
     this.db = new Database(filename)
   }
 
   async getOne<T = any>(sql: string, params: any[] = []): Promise<T | undefined> {
-    const rows = await this.getAll(sql, params);
-    return rows[0];
+    const rows = await this.getAll(sql, params)
+    return rows[0]
   }
 
   async getAll<T = any>(sql: string, params: any[] = []): Promise<T[]> {
@@ -34,10 +35,10 @@ export type UserRow = {
   name: string;
   bio: string;
   avatar_url: string;
-  fellowship: "founders" | "angels" | "writers";
+  fellowship: Fellowship;
   created_ts: Date;
   updated_ts: Date;
-}
+};
 
 export type ProjectRow = {
   id: number;
@@ -46,18 +47,33 @@ export type ProjectRow = {
   icon_url: string;
   created_ts: Date;
   updated_ts: Date;
-}
+};
 
 export type UserProjectRow = {
   user_id: number;
   project_id: number;
-}
+};
 
 export type AnnouncementRow = {
   id: number;
-  fellowship: "founders" | "angels" | "writers" | "all";
+  fellowship: Fellowship | 'all';
   title: string;
   body: string;
   created_ts: Date;
   updated_ts: Date;
+};
+
+export type FeedItemRow = {
+  entity_id: number;
+  icon_url: string;
+  title: string;
+  body: string;
+  created_ts: Date;
+  type: FeedItemType;
+}
+
+export type FeedResult = {
+  items: FeedItemRow[];
+  cursor: string;
+  hasMore: boolean;
 }
