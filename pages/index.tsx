@@ -5,6 +5,7 @@ import React, { useCallback, useEffect, useRef, useState } from 'react'
 import Feed from '@/components/feed/Feed'
 import { FELLOWSHIP_VALUES } from 'types/shared'
 import { FeedItem } from 'types/feed'
+import styled from 'styled-components'
 
 const MIN_FEED_ITEM_HEIGHT = 48
 
@@ -102,11 +103,18 @@ export default function Home() {
         ))}
       </InlineSelect>
 
-      {error ? <h3>Something went wrong</h3> : !loading && data && data.feed.items && <Feed items={data.feed.items} />}
+      <ScrollableContainer>
+        {error ? <h3>Something went wrong</h3> : !loading && data && data.feed.items && <Feed items={data.feed.items} />}
 
-      <div ref={loader} />
+        <div ref={loader} />
 
-      {loading && <h3>Loading...</h3>}
+        {loading && <h3>Loading...</h3>}
+      </ScrollableContainer>
     </Layout>
   )
 }
+
+const ScrollableContainer = styled.div`
+  margin: 16px 0;
+  overflow-y: scroll;
+`

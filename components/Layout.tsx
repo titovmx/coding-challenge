@@ -15,7 +15,7 @@ export default function Layout({ children }: React.PropsWithChildren<Record<stri
 }
 
 const Container = styled.div`
-  min-height: 100vh;
+  height: 100%;
   padding: 0 0.5rem;
   display: flex;
   flex-direction: column;
@@ -24,6 +24,7 @@ const Container = styled.div`
 `
 
 const Main = styled.div`
+  height: 100%;
   padding: 1rem 0;
   flex: 1;
   display: flex;

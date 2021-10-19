@@ -15,8 +15,6 @@ export const cache = new InMemoryCache({
             if (incoming) {
               items = [...items, ...incoming.items]
             }
-            console.log('Merge')
-            console.log({...existing, items, cursor: incoming.cursor})
             return {...incoming, items}
           },
         }

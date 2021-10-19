@@ -34,6 +34,11 @@ const GlobalStyle = createGlobalStyle`
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
       Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
     font-size: 14px;
+    height: 100vh;
+  }
+
+  #__next {
+    height: 100%;
   }
 
   a {

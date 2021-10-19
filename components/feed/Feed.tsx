@@ -16,6 +16,4 @@ export default function Feed({ items }: Props) {
   )
 }
 
-const FeedContainer = styled.div`
-  margin: 16px 0;
-`
+const FeedContainer = styled.div``
